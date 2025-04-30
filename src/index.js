@@ -10,12 +10,14 @@ export default {
         }
   
         const startTime = performance.now();
+  
         try {
           const response = await fetch(targetUrl, {
             headers: {
               "Fastly-Debug": "1",
               "Pantheon-Debug": "1",
             },
+            redirect: "follow" // Follow redirects (default)
           });
   
           const endTime = performance.now();
@@ -30,6 +32,8 @@ export default {
   
           return new Response(JSON.stringify({
             url: targetUrl,
+            finalUrl: response.url,
+            redirected: response.redirected,
             status: response.status,
             responseTime: responseTime.toFixed(2),
             headers,
