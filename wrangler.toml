@@ -1,0 +1,6 @@
+name = "snoopy-proxy"
+type = "javascript"
+account_id = "af7c53d54e15c152805e361e00e5be87"
+workers_dev = true
+compatibility_date = "2024-04-29"
+main = "src/index.js"
